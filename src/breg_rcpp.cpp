@@ -1,5 +1,6 @@
 
 #include "mukera.h"
+#include "info.h"
 // [[Rcpp::depends(RcppArmadillo)]]
 
 
@@ -21,6 +22,11 @@ arma::vec breg(arma::vec const& y, arma::mat const& X, arma::vec const& betabar,
   arma::mat W = join_cols(X, RA); //same as rbind(X,RA)
   arma::vec z = join_cols(y, RA*betabar);
   arma::mat IR = solve(trimatu(chol(trans(W)*W)), arma::eye(k,k)); //trimatu interprets the matrix as upper triangular and makes solve more efficient
-  
+
+  //mean and standard deviation of y
+  double ybar = arma::mean(y);  
+  double shat = arma::stddev(y);
+  Rcpp::Rcout << "ybar, shat: " << ybar << " , " << shat << std::endl;
+
   return ((IR*trans(IR))*(trans(W)*z) + IR*arma::vec(rnorm(k)));
 } 
