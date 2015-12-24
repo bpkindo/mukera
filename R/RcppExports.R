@@ -2,6 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 breg <- function(y, X, betabar, A) {
+#'@export
     .Call('mukera_breg', PACKAGE = 'mukera', y, X, betabar, A)
 }
 
