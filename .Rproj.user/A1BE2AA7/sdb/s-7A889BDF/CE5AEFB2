@@ -1,0 +1,16 @@
+{
+    "contents" : "setwd(\"C:/Users/Christine/Documents/rcpparmadillo_test\")\nlibrary(devtools, roxygen2)\nlibrary(rstudioapi)\nlibrary(Rcpp)\nlibrary(RcppArmadillo)\n\nsetwd(\"./mukera/R\")\ndocument()\n\n\ndevtools::install(\"mukera\")\ndevtools::check(\"mukera\", cran = FALSE)\n\ndevtools::build(\"mukera\", vignettes = FALSE)\n\n\n#github repo\n\n#git remote add origin https://github.com/bpkindo/mukera.git\n#git push -u origin master\n\ndevtools::install_github(\"bpkindo/mukera\")\nlibrary(mukera)\nhelp(rmukera)\n",
+    "created" : 1450940626826.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2719380940",
+    "id" : "CE5AEFB2",
+    "lastKnownWriteTime" : 1450934254,
+    "path" : "~/rcpparmadillo_test/ProcessDuringPackageCreation.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
