@@ -26,7 +26,11 @@ arma::vec breg(arma::vec const& y, arma::mat const& X, arma::vec const& betabar,
   //mean and standard deviation of y
   double ybar = arma::mean(y);  
   double shat = arma::stddev(y);
-  Rcpp::Rcout << "ybar, shat: " << ybar << " , " << shat << std::endl;
+
+  //--------------------------------------------------
+  //prior and mcmc
+  pinfo pi;
+  Rcpp::Rcout << "alpha, beta: " << pi.alpha << " , " << pi.beta << std::endl;
 
   return ((IR*trans(IR))*(trans(W)*z) + IR*arma::vec(rnorm(k)));
 } 
