@@ -1,0 +1,17 @@
+{
+    "contents" : "R = 100\n\nset.seed(66)\nn=100\nX=cbind(rep(1,n),runif(n)); beta=c(1,2)\ny=X%*%beta+rnorm(n)\n##\n## set prior\nA=diag(c(.05,.05)); betabar=c(0,0)\n##\n## make draws from posterior\nbetadraw=matrix(double(R*2),ncol=2)\nfor (rep in 1:R) {betadraw[rep,]=breg(y,X,betabar,A)}\n##\n## summarize draws\nmat=apply(betadraw,2,quantile,probs=c(.01,.05,.5,.95,.99))\nmat=rbind(beta,mat); rownames(mat)[1]=\"beta\"; print(mat)\n",
+    "created" : 1450939921259.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2369918350",
+    "id" : "C23079A4",
+    "lastKnownWriteTime" : 1450968409,
+    "path" : "~/rcpparmadillo_test/exmaple.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

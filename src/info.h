@@ -33,15 +33,6 @@ struct moments{
   mat hess;
 };
 
-//data
-//class dinfo {
-//public:
-//   dinfo() {p=0;n=0;x=0;y=0;}
-//   int p;  //number of vars
-//   int n;  //number of observations
-//   mat x; // armadillo matrix of predictors
-//   vec y; // vector of response
-//};
 
 
 #endif

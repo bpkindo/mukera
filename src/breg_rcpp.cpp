@@ -1,6 +1,6 @@
-
 #include "mukera.h"
 #include "info.h"
+#include "functions.h"
 // [[Rcpp::depends(RcppArmadillo)]]
 
 
@@ -27,10 +27,22 @@ arma::vec breg(arma::vec const& y, arma::mat const& X, arma::vec const& betabar,
   double ybar = arma::mean(y);  
   double shat = arma::stddev(y);
 
-  //--------------------------------------------------
+ 
+   double lambda = 1.0; 
+   double nu = 3.0;
+   double kfac = 2.0;
+   //x cutpoints
+   size_t nc=100; //100 equally spaced cutpoints from min to max.
+   size_t p = X.n_cols;
+   size_t n = X.n_rows;
+   arma::mat xi(p,nc);
+   makexinfo(p,n,X,xi,nc); 
+   
+   xi.print();
+
+   //--------------------------------------------------
   //prior and mcmc
   pinfo pi;
-  Rcpp::Rcout << "alpha, beta: " << pi.alpha << " , " << pi.beta << std::endl;
-
+ 
   return ((IR*trans(IR))*(trans(W)*z) + IR*arma::vec(rnorm(k)));
 } 

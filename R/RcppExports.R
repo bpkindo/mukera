@@ -4,6 +4,7 @@
 breg <- function(y, X, betabar, A) {
 #' @useDynLib mukera
 #' @export
+
     .Call('mukera_breg', PACKAGE = 'mukera', y, X, betabar, A)
 }
 
